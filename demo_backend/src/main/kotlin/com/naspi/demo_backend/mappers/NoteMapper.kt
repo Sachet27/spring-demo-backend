@@ -16,7 +16,8 @@ fun Note.toNoteResponse(): NoteResponse {
     )
 }
 
-fun NoteController.NoteRequest.toNote(): Note{
+fun NoteController.NoteRequest.toNote(ownerId: String): Note{
+
     return Note(
             id = id?.let {
                 ObjectId(it)
@@ -24,7 +25,7 @@ fun NoteController.NoteRequest.toNote(): Note{
             title = title,
             content = content,
             color = color,
-            ownerId = ObjectId(),
+            ownerId = ObjectId(ownerId),
             createdDateTime = Instant.now()
     )
 }

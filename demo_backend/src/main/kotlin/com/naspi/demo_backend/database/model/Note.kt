@@ -14,3 +14,5 @@ data class Note(
     val ownerId: ObjectId,
     val createdDateTime: Instant,
 )
+
+
